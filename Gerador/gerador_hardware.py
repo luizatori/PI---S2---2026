@@ -253,7 +253,7 @@ def gerar_massa_telemetria(total_linhas=2_000_000, chunk_size=50_000, output_fil
             'system_overall_score': system_scores
         })
 
-        #insercao de ruidos estatisticos para tratamento posterior no etl / data warehouse
+        #insercao de ruidos estatisticos para tratamento posterior no etl / data warehouse / data lake
         ruido_mask = np.random.rand(atual_chunk) < 0.005
         df_chunk.loc[ruido_mask, 'cpu_usage_pct'] = np.random.uniform(101.0, 250.0, np.sum(ruido_mask))
         df_chunk.loc[ruido_mask, 'gpu_vram_total_gb'] = np.nan
