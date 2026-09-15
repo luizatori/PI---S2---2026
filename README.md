@@ -15,3 +15,5 @@ A ausência de uma plataforma centralizada e automatizada de coleta e análise m
 
 ## Estrutura
 - Docs - documentos/protótipos
+- Gerador - gerador dos dados
+  
