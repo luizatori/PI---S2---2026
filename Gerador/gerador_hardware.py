@@ -269,4 +269,4 @@ def gerar_massa_telemetria(total_linhas=2_000_000, chunk_size=50_000, output_fil
 
 if __name__ == '__main__':
     #valor de linhas completamente alteravel de acordo com a nescessidade 
-    gerar_massa_telemetria(total_linhas=5_000_000)git push
+    gerar_massa_telemetria(total_linhas=5_000_000)
