@@ -14,6 +14,6 @@ Na Infraestrutura Corporativa: Equipes de TI realizam compras desnecessárias de
 A ausência de uma plataforma centralizada e automatizada de coleta e análise massiva de hardware impede que empresas e desenvolvedores tomem decisões técnicas e financeiras orientadas a dados. 
 
 ## Estrutura
-- Docs - documentos/protótipos
+- Docs - documentos/pipeline
 - Gerador - gerador dos dados
   
