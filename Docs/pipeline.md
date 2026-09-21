@@ -70,7 +70,6 @@ Exemplo de dados necessários para armazenar as características de todo o estad
 
 ### 1. Geração dos Dados — VM "Gerador"
 * **Origem:** Script Python (`gerador_hardware.py`) executado em uma VM Linux (Ubuntu 26.04 LTS), usando geração procedural condicional (`NumPy`/`Pandas`).
-* **Métricas simuladas:** CPU, GPU, RAM, Disco e Sistema Operacional.
 * **Escala:** Pool fixo de 25.000 identificadores de máquina (`system_id`), distribuídos em 5.000.000 de eventos, com gravação incremental em *chunks*.
 * **Saída:** Arquivo `.csv` gravado localmente na VM.
 * **Versionamento e deploy:** O código do gerador é versionado no GitHub; um workflow de CI/CD sincroniza (via SSH/rsync) a pasta do gerador para a VM e prepara o ambiente Python.
