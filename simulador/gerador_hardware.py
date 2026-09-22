@@ -3,6 +3,7 @@ import time
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
+import os
 
 #funcoes para geracao dinamica e procedural de componentes
 def gerar_cpu_dinamica():
@@ -110,7 +111,11 @@ def gerar_gpu_coerente(cpu_modelo):
         
     return modelo, vram
 
-def gerar_massa_telemetria(total_linhas=2_000_000, chunk_size=50_000, output_file='gerador_hardware.csv'):
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CAMINHO_DADOS_PADRAO = os.path.join(BASE_DIR, 'dados', 'gerador_hardware.csv')
+
+def gerar_massa_telemetria(total_linhas=5_000_000, chunk_size=50_000, output_file=CAMINHO_DADOS_PADRAO):
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
     print(f"iniciando geracao de {total_linhas:,} linhas com geracao dinamica procedural...")
     inicio = time.time()
 
@@ -269,4 +274,4 @@ def gerar_massa_telemetria(total_linhas=2_000_000, chunk_size=50_000, output_fil
 
 if __name__ == '__main__':
     #valor de linhas completamente alteravel de acordo com a nescessidade 
-    gerar_massa_telemetria(total_linhas=5_000_000)
+    gerar_massa_telemetria(total_linhas= 5_000_000)
