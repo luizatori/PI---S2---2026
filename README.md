@@ -19,7 +19,7 @@ A ausência de uma plataforma centralizada e automatizada de coleta e análise m
 ##  Estrutura do Repositório
 
 ```text
-PI---S2---2026/
+Pesquisa e análise de Hardware/
 ├── dados/
 │   ├── exemplo_dados.csv        # Amostra do dataset 
 │   └── gerador_hardware.csv    # Dataset completo gerado (ignorado pelo Git)
