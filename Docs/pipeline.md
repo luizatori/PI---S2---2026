@@ -68,29 +68,34 @@ Exemplo de dados necessários para armazenar as características de todo o estad
 
 ## 5. Pipeline de Dados
 
-### 1. Geração dos Dados — VM "Gerador"
+### 1. Geração dos Dados — VM "Gerador" [x] 
 * **Origem:** Script Python (`gerador_hardware.py`) executado em uma VM Linux (Ubuntu 26.04 LTS), usando geração procedural condicional (`NumPy`/`Pandas`).
 * **Escala:** Pool fixo de 25.000 identificadores de máquina (`system_id`), distribuídos em 5.000.000 de eventos, com gravação incremental em *chunks*.
 * **Saída:** Arquivo `.csv` gravado localmente na VM.
 * **Versionamento e deploy:** O código do gerador é versionado no GitHub; um workflow de CI/CD sincroniza (via SSH/rsync) a pasta do gerador para a VM e prepara o ambiente Python.
-
+* **Status:** Concluido.
+  
+  * [x] OpenTofu: Provisionamento bem-sucedido da máquina virtual por código no ambiente KVM/libvirt com disco de 15GB.
+  * [x] Cloud-init: Configuração inicial automatizada da máquina virtual e chaves de acesso SSH.
+  * [x] Ansible: Playbook executado com sucesso (failed=0), configurando dependências, diretórios e ambiente virtual Python na VM.
+  * [x] SSH / SCP: Conexão segura estabelecida e implantação da aplicação realizada com sucesso na máquina virtual.   
 ---
 
-### 2. Consumo e Tratamento — VM "Consumidor R"
+### 2. Consumo e Tratamento — VM "Consumidor R" [ ]
 * **Mecanismo:** Script em R, executado em uma segunda VM Linux, consome o `.csv` produzido pela etapa 1.
 * **Ações:** Limpar (remover *outliers* e leituras impossíveis), tratar (padronizar nomes de modelos de CPU/GPU, imputar valores nulos) e gerar um novo `.csv` já tratado como saída.
 * Este `.csv` tratado é o artefato de entrada para as próximas etapas de análise.
 
 ---
 
-### 3. Big Data & Análise Exploratória de Dados (AED)— Google Colab
+### 3. Big Data & Análise Exploratória de Dados (AED)— Google Colab [ ]
 * **Mecanismo:** Leitura e processamento do arquivo `.csv` higienizado no ambiente **Google Colab**, utilizando Python e suas bibliotecas ecossistêmicas de análise de dados (`Pandas`, `NumPy`, `Matplotlib` e `Seaborn`).
 * **Ações de Análise e Modelagem:**
   * **Análise Exploratória de Dados (AED):** Cálculo de estatísticas descritivas (média, mediana, desvio padrão, percentis e quartis e etc.)
 
 ---
 
-### 4. Disponibilização & Dashboard *(Fase futura)*
+### 4. Disponibilização & Dashboard *(Fase futura)* [ ]
 * **Front-end:** Dashboard em HTML e JavaScript (`Chart.js` / `Plotly`), a ser implementado em uma etapa posterior do projeto.
 
 ---
