@@ -23,7 +23,7 @@ resource "libvirt_volume" "os_image" {
   name   = "${var.vm_name}-disk"
   pool   = "default"
   source = "https://cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.img"
-  format = "qcow2"
+  format = "qcow2"				
 }
 
 # Definição da Máquina Virtual
