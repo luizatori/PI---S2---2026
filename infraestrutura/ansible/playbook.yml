@@ -1,0 +1,45 @@
+---
+- name: Preparar ambiente de execução do Simulador de Hardware
+  hosts: gerador
+  become: yes
+  tasks:
+
+    - name: Atualizar cache de pacotes do sistema (APT)
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Garantir instalação do Python 3 e dependências de ambiente
+      apt:
+        name:
+          - python3
+          - python3-pip
+          - python3-venv
+          - git
+        state: present
+
+    - name: Criar estrutura de diretórios do projeto na VM
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+      loop:
+        - /home/ubuntu/projeto_telemetria
+        - /home/ubuntu/projeto_telemetria/simulador
+        - /home/ubuntu/projeto_telemetria/dados
+
+    - name: Criar ambiente virtual Python (venv)
+      become_user: ubuntu
+      command: python3 -m venv /home/ubuntu/projeto_telemetria/venv
+      args:
+        creates: /home/ubuntu/projeto_telemetria/venv
+
+    - name: Instalar bibliotecas Python no ambiente virtual (NumPy e Pandas)
+      become_user: ubuntu
+      pip:
+        name:
+          - numpy
+          - pandas
+        virtualenv: /home/ubuntu/projeto_telemetria/venv
