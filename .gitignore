@@ -1,2 +1,39 @@
+#dados e amostras
+
+#ignora arquivos grandes de CSV gerados
 dados/*.csv
+#mantem a amostra
 !dados/exemplo_dados.csv
+
+
+#segurança e chaves privadas
+*.pem
+*.pub
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.key
+
+#openTofu / terraform (estados e cache)
+.terraform/
+.tofu/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform.lock.hcl
+
+#python e abientes virtuais
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+#arquivos de sistema e IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
