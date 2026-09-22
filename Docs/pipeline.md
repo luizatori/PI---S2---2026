@@ -83,7 +83,7 @@ Exemplo de dados necessários para armazenar as características de todo o estad
 
 ### 2. Consumo e Tratamento — VM "Consumidor R" [ ]
 * **Mecanismo:** Script em R, executado em uma segunda VM Linux, consome o `.csv` produzido pela etapa 1.
-* **Ações:** Limpar (remover *outliers* e leituras impossíveis), tratar (padronizar nomes de modelos de CPU/GPU, imputar valores nulos) e gerar um novo `.csv` já tratado como saída.
+* **Ações:** Limpar (remover *outliers* e leituras impossíveis), tratar e gerar um novo `.csv` já tratado como saída.
 * Este `.csv` tratado é o artefato de entrada para as próximas etapas de análise.
 
 ---
