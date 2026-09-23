@@ -21,8 +21,8 @@ A ausência de uma plataforma centralizada e automatizada de coleta e análise m
 ```text
 Pesquisa_e_analise_de_Hardware/
 ├── dados/
-│   ├── exemplo_dados.csv        # Amostra do dataset 
-│   └── gerador_hardware.csv    # Dataset completo gerado (ignorado pelo Git)
+│   ├── exemplo_dados.csv       # Amostra do dataset 
+│   └── gerador_hardware.csv    # Dataset completo gerado (ignorado pelo gitignore)
 ├── Docs/
 │   ├── .gitkeep                
 │   ├── como_o_gerador_f...md    # Documentação de funcionamento do gerador
@@ -35,7 +35,7 @@ Pesquisa_e_analise_de_Hardware/
 │   ├── main.tf                  # Provisionamento da VM via OpenTofu
 │   └── variables.tf             # Variáveis do OpenTofu
 ├── simulador/
-│   ├── gerador_hardware.py      # Script em Python do gerador de telemetria
+│   ├── gerador_hardware.py      # Script em Python do gerador de hardware
 │   └── requirements.txt         # Dependências de execução (NumPy, Pandas)
 ├── .gitignore                   # Arquivos ignorados pelo controle de versão
 └── README.md                    # Documentação principal do projeto
