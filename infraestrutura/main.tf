@@ -12,13 +12,13 @@ provider "libvirt" {
   uri = "qemu:///system"
 }
 
-# Configuração do Cloud-Init
+#configuracao do cloud init 
 resource "libvirt_cloudinit_disk" "commoninit" {
   name      = "commoninit.iso"
   user_data = file("${path.module}/cloud_init.cfg")
 }
 
-# Volume do Sistema Operacional (Ubuntu 22.04 / 26.04 Cloud Image)
+#volume do SO (Ubuntu 22.04 / 26.04 Cloud Image)
 resource "libvirt_volume" "os_image" {
   name   = "${var.vm_name}-disk"
   pool   = "default"
@@ -26,7 +26,7 @@ resource "libvirt_volume" "os_image" {
   format = "qcow2"				
 }
 
-# Definição da Máquina Virtual
+#definindo a vm
 resource "libvirt_domain" "vm_gerador" {
   name   = var.vm_name
   memory = var.memory_mb
