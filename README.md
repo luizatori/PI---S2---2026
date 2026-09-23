@@ -45,7 +45,7 @@ Pesquisa_e_analise_de_Hardware/
 
 ##  Requisitos Prévios
 
-Para reproduzir a automação da infraestrutura e a execução do simulador:
+Para reproduzir a automação da infraestrutura e a execução do simulador de dados:
 
 - **Sistema Operacional:** Linux (Ubuntu 22.04 LTS ou superior) com suporte a KVM/libvirt.
 - **Infraestrutura como Código (IaC):**
